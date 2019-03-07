@@ -24,5 +24,10 @@ pipeline {
                 zip zipFile: '../package.zip', archive: true
             }
         }
+        stage('Cleanup') {
+            steps {
+                deleteDir()
+            }
+        }
     }
 }
