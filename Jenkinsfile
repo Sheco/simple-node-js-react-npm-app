@@ -24,16 +24,12 @@ pipeline {
                 sh './jenkins/scripts/package.sh'
             }
         }
-        stage('Cleanup') {
-            steps {
-                deleteDir()
-            }
-        }
     }
 
     post {
         always {
             archiveArtifacts artifacts: 'package.tar.gz', fingerprint: true
+            deleteDir()
         }
     }
 }
