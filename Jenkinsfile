@@ -21,12 +21,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                zip zipFile: '../package.zip', archive: true
-            }
-        }
-        stage('Cleanup') {
-            steps {
-                deleteDir()
+                sh './jenkins/scripts/package.sh'
             }
         }
     }
